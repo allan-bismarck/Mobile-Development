@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'adaptative_button.dart';
+import 'adaptative_text_field.dart';
+import 'adaptative_date_picker.dart';
 
 class TransactionForm extends StatefulWidget {
   final void Function(String, double, DateTime) onSubmit;
@@ -14,100 +16,56 @@ class _TransactionFormState extends State<TransactionForm> {
   final _titleController = TextEditingController();
   final _valueController = TextEditingController();
   DateTime _selectedDate = DateTime.now();
-  int escolheu_data = 0;
 
   _SubmitForm() {
     final title = _titleController.text;
     final value = double.tryParse(_valueController.text) ?? 0.0;
 
-    if (title.isEmpty || value <= 0 || escolheu_data == 0) {
+    if (title.isEmpty || value <= 0) {
       return;
     }
 
     widget.onSubmit(title, value, _selectedDate);
   }
 
-  _showDatePicker() {
-    escolheu_data = 0;
-    showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2019),
-      lastDate: DateTime.now(),
-    ).then((pickedDate) {
-      if (pickedDate == null) {
-        return;
-      }
-
-      setState(() {
-        _selectedDate = pickedDate;
-        escolheu_data = 1;
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: <Widget>[
-            TextField(
-              controller: _titleController,
-              onSubmitted: (_) => _SubmitForm(),
-              decoration: InputDecoration(
-                labelText: 'Título',
+    return SingleChildScrollView(
+      child: Card(
+        elevation: 5,
+        child: Padding(
+          padding: EdgeInsets.only(
+            top: 10,
+            right: 10,
+            left: 10,
+            bottom: 10 + (MediaQuery.of(context).viewInsets.bottom),
+          ),
+          child: Column(
+            children: <Widget>[
+              AdaptativeTextField(
+                'Título',
+                _titleController,
+                TextInputType.text,
+                (_) => _SubmitForm(),
               ),
-            ),
-            TextField(
-              controller: _valueController,
-              onSubmitted: (_) => _SubmitForm(),
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
-              decoration: InputDecoration(
-                labelText: 'Valor (R\$)',
+              AdaptativeTextField(
+                'Valor (R\$)',
+                _valueController,
+                TextInputType.numberWithOptions(decimal: true),
+                (_) => _SubmitForm(),
               ),
-            ),
-            Container(
-              height: 70,
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      _selectedDate == DateTime.now() && escolheu_data == 0
-                          ? 'Nenhuma data selecionada!'
-                          : 'Data Selecionada: ${DateFormat('dd/MM/yyyy').format(_selectedDate)}',
-                    ),
-                  ),
-                  TextButton(
-                    child: Text('Selecionar Data'),
-                    style: TextButton.styleFrom(
-                      primary: Theme.of(context).primaryColor,
-                      padding: EdgeInsets.all(10),
-                      textStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    onPressed: _showDatePicker,
-                  ),
-                ],
+              AdaptativeDatePicker(_selectedDate, (newDate) {
+                setState(() {
+                  _selectedDate = newDate;
+                });
+              }),
+              Container(
+                alignment: AlignmentDirectional.bottomEnd,
+                margin: EdgeInsets.all(10),
+                child: AdaptativeButton('Nova Transação', _SubmitForm),
               ),
-            ),
-            Container(
-              alignment: AlignmentDirectional.bottomEnd,
-              margin: EdgeInsets.all(10),
-              child: TextButton(
-                child: Text('Nova Transação'),
-                style: TextButton.styleFrom(
-                  backgroundColor: Theme.of(context).primaryColor,
-                  primary: Colors.white,
-                  padding: EdgeInsets.all(10),
-                ),
-                onPressed: _SubmitForm,
-              ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
