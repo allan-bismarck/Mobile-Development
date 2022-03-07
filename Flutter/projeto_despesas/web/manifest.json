@@ -1,6 +1,6 @@
 {
-    "name": "projeto_perguntas",
-    "short_name": "projeto_perguntas",
+    "name": "projeto_despesas",
+    "short_name": "projeto_despesas",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
