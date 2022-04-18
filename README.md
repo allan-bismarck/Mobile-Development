@@ -1,13 +1,11 @@
 # Desenvolvimento Mobile
 
-Portfólio de aplicativos desenvolvidos
-
 ## ✨ Description
 
 #### <p align="justify">Esse repositório reúne alguns aplicativos desenvolvidos no curso de Flutter na plataforma Udemy, o curso é ministrado pelo Leonardo Moura da COD3R. Futuramente esse repositório também terá aplicativos desenvolvidos em React Native.</p>
 
-### <p align="justify">Lista de aplicativos</p>
-#### <p align="justify">Lista de aplicativos</p>
+## <p align="justify">Lista de aplicativos</p>
+#### <ul><li>Código Exemplo do Flutter</li><li>Telefone</li><li>Casa</li><li>Estado</li></ul>
 
 
 ## ✨ Technologies used
