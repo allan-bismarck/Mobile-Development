@@ -1,4 +1,4 @@
-# Desenvolvimento Mobile
+# 📱 Desenvolvimento Mobile
 
 ## ✨ Description
 
@@ -6,7 +6,7 @@
 
 ##
 
-## <p align="justify">Lista de aplicativos</p>
+## <p align="justify">📱 Lista de aplicativos</p>
 #### <ul><li>Código Exemplo do Flutter</li><li>Aplicativo para Controle de Despesas Pessoais</li><li>Aplicativo de Loja</li><li>Aplicativo de Perguntas</li><li>Aplicativo de Refeições</li></ul>
 
 ##
