@@ -13,5 +13,5 @@
 
 ## ✨ Technologies used
 <div style="display: inline_block">
-  <img align="center" alt="Allan-dart" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg">
+  <img align="center" alt="Allan-flutter" height="50" width="60"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
 </div>
