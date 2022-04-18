@@ -1,3 +1,5 @@
+<a href="README.md" target="_blank">Read this page in english<a/> 
+
 # 📱 Desenvolvimento Mobile
 
 ## ✨ Descrição
