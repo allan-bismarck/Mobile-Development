@@ -1,3 +1,5 @@
+<a href="README_portuguese.md" target="_blank">Read this page in portuguese<a/> 
+
 # 📱 Desenvolvimento Mobile
 
 ## ✨ Descrição
